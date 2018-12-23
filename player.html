@@ -155,16 +155,13 @@
     audio.autoplay = true;
 
     getMusicList(function(list){
-<<<<<<< HEAD
       musicList = list;
       loadMusic(list[currentIndex]);
       generateList(list);
-=======
       console.log(list);
       var song = list[0];
       var audioObject = new Audio(song.src);
       audioObject.play();
->>>>>>> 85117dd548d2f05bbd6f82e4b06fd4a9e27758bf
     })
     function getMusicList(callback){
       var xhr = new XMLHttpRequest();
