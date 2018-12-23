@@ -152,6 +152,10 @@
 
     getMusicList(function(list){
       console.log(list);
+      var song = list[0];
+      var song = list[0];
+      var audioObject = new Audio(song.src);
+      audioObject.play();
     })
     function getMusicList(callback){
       var xhr = new XMLHttpRequest();
