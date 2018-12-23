@@ -115,7 +115,7 @@
       display: inline-block;
       width: 8px;
       height: 30px;
-      background: rgba(224, 133, 133, 0.8);
+      background: rgba(241, 160, 160, 0.8);
     }
   </style>
 </head>
@@ -238,7 +238,7 @@
       audio.currentTime = audio.duration * percent;
     }
 
-    $('.musicbox .list>li').onclick = function(e){
+    $('.musicbox .list').onclick = function(e){
       currentIndex = parseInt(e.id);
       loadMusic(musicList[currentIndex]);
     }
