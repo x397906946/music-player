@@ -179,7 +179,7 @@
     function generateList(list){
       for(var key in list){
         var li = document.createElement('li');
-        li.setAttribute('id', key);
+        li.setAttribute('class', key);
         li.innerText = list[key].title + '-' +list[key].author;
         $('.musicbox .list').appendChild(li);
       }
@@ -193,7 +193,7 @@
     }
     function freshList(){
       $('.musicbox .list>li.playing').classList.remove('playing');
-      document.getElementById(currentIndex).classList.add('playing');
+      document.getElementsByClassName(key).classList.add('playing');
     }
     audio.ontimeupdate = function(){
       $('.musicbox .progress-now').style.width = (this.currentTime/this.duration)*100 + '%';
