@@ -177,8 +177,9 @@
     
     function generateList(list){
       for(var key in list){
-        var li = $('.musicbox .list').createElement('li');
+        var li = document.createElement('li');
         li.innerText = list[key].title + '-' +list[key].author;
+        $('.musicbox .list').appendChild(li);
       }
     }
     function loadMusic(musicObj){
@@ -193,8 +194,8 @@
     }
     audio.onplay = function(){
       clock = setInterval(function(){
-        var min = Math.floor(this.currentTime)/60;
-        var sec = Math.floor(this.currentTime)%60 + '';
+        var min = Math.floor(audio.currentTime)/60;
+        var sec = Math.floor(audio.currentTime)%60 + '';
         sec = sec.length === 2 ? sec : '0' + sec; 
         $('.musicbox .time').innerText = min + ':' + sec;
       }, 1000);
@@ -204,14 +205,14 @@
     }
 
     $('.musicbox .play').onclick = function(){
-      if(audio.played){
-        audio.pause();
-        this.querySelector('.iconfont').classList.remove('icon-pause');
-        this.querySelector('.iconfont').classList.add('icon-play');
-      }else{
+      if(audio.paused){
         audio.play();
         this.querySelector('.iconfont').classList.add('icon-pause');
         this.querySelector('.iconfont').classList.remove('icon-play');
+      }else{
+        audio.pause();
+        this.querySelector('.iconfont').classList.remove('icon-pause');
+        this.querySelector('.iconfont').classList.add('icon-play');
       }
     }
     
