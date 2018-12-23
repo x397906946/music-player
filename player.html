@@ -158,10 +158,6 @@
       musicList = list;
       loadMusic(list[currentIndex]);
       generateList(list);
-      console.log(list);
-      var song = list[0];
-      var audioObject = new Audio(song.src);
-      audioObject.play();
     })
     function getMusicList(callback){
       var xhr = new XMLHttpRequest();
@@ -209,11 +205,11 @@
 
     $('.musicbox .play').onclick = function(){
       if(audio.played){
-        audio.pause;
+        audio.pause();
         this.querySelector('.iconfont').classList.remove('icon-pause');
         this.querySelector('.iconfont').classList.add('icon-play');
       }else{
-        audio.play;
+        audio.play();
         this.querySelector('.iconfont').classList.add('icon-pause');
         this.querySelector('.iconfont').classList.remove('icon-play');
       }
