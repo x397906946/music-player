@@ -192,7 +192,9 @@
       freshList();
     }
     function freshList(){
-      $('.musicbox .list>li.playing').classList.remove('playing');
+      if($('.musicbox .list>li.playing').classList !== null){
+        $('.musicbox .list>li.playing').classList.remove('playing');
+      }
       document.getElementsByClassName(key).classList.add('playing');
     }
     audio.ontimeupdate = function(){
