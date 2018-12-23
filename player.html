@@ -102,6 +102,7 @@
       border-top: none;
       overflow: hidden;
       cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
     }
     .musicbox .list>li:hover {
       background-color: rgba(255, 255, 255, 0.5);
@@ -156,8 +157,8 @@
 
     getMusicList(function(list){
       musicList = list;
-      loadMusic(list[currentIndex]);
       generateList(list);
+      loadMusic(list[currentIndex]);
     })
     function getMusicList(callback){
       var xhr = new XMLHttpRequest();
@@ -178,6 +179,7 @@
     function generateList(list){
       for(var key in list){
         var li = document.createElement('li');
+        li.setAttribute('id', key);
         li.innerText = list[key].title + '-' +list[key].author;
         $('.musicbox .list').appendChild(li);
       }
@@ -187,14 +189,18 @@
       $('.musicbox .title').innerText = musicObj.title;
       $('.musicbox .author').innerText = musicObj.author;
       $('.cover').style.backgroundImage = 'url(' + musicObj.img + ')';
+      freshList();
     }
-
+    function freshList(){
+      $('.musicbox .list>li.playing').classList.remove('playing');
+      document.getElementById(currentIndex).classList.add('playing');
+    }
     audio.ontimeupdate = function(){
       $('.musicbox .progress-now').style.width = (this.currentTime/this.duration)*100 + '%';
     }
     audio.onplay = function(){
       clock = setInterval(function(){
-        var min = Math.floor(audio.currentTime)/60;
+        var min = Math.floor(audio.currentTime/60);
         var sec = Math.floor(audio.currentTime)%60 + '';
         sec = sec.length === 2 ? sec : '0' + sec; 
         $('.musicbox .time').innerText = min + ':' + sec;
