@@ -239,7 +239,7 @@
     }
 
     $('.musicbox .list').onclick = function(e){
-      currentIndex = parseInt(e.id);
+      currentIndex = parseInt(e.target.id);
       loadMusic(musicList[currentIndex]);
     }
 
