@@ -192,7 +192,7 @@
       freshList();
     }
     function freshList(){
-      if($('.musicbox .list>li.playing').classList !== null){
+      if($('.musicbox .list>li.playing')){
         $('.musicbox .list>li.playing').classList.remove('playing');
       }
       document.getElementsByClassName(key).classList.add('playing');
