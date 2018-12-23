@@ -1,13 +1,13 @@
 [
   {
-    "src":  "/mp3/lemon.mp3",
+    "src":  "mp3/lemon.mp3",
     "title":  "lemon",
     "author": "米津玄师",
-    "img":  "/image/lemon.jpg"
+    "img":  "image/lemon.jpg"
   },{
-    "src":  "/mp3/yanhuo.mp3",
+    "src":  "mp3/yanhuo.mp3",
     "title":  "烟火里的尘埃",
     "author": "华晨宇",
-    "img":  "/image/yanhuo.jpg"
+    "img":  "image/yanhuo.jpg"
   }
 ]
